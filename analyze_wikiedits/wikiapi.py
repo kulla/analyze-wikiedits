@@ -40,3 +40,11 @@ class MediaWiki(object):
         params["format"] = "json"
 
         return requests.get(self.api_url, params).json()
+
+    def query(self, params):
+        """Make an API call with the action `query` and parses the returned
+        json.
+        """
+        params["action"] = "query"
+
+        return self.api(params)

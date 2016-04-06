@@ -14,6 +14,12 @@ class TestMediaWiki(TestCase):
         params = { "action": "query", "meta": "siteinfo" }
 
         self.assertEquals(
-                self.wiki.api(params)["query"]["general"]["sitename"],
-                "Wikipedia"
+            self.wiki.api(params)["query"]["general"]["sitename"],
+            "Wikipedia"
+        )
+
+    def test_query(self):
+        self.assertEquals(
+            self.wiki.query({ "meta": "siteinfo" })["query"]["general"]["sitename"],
+            "Wikipedia"
         )
