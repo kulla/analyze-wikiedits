@@ -1,3 +1,8 @@
+"""This module contains classes for accessing articles and properties of a
+MediaWiki via its API. See https://www.mediawiki.org/wiki/API:Main_page for a
+documentation about this API.
+"""
+
 # Copyright (C) 2016 Stephan Kulla
 #
 # This file is part of "Analyze Wikiedits".
@@ -16,12 +21,12 @@
 # along with "Analyze Wikiedits". If not, see <http://www.gnu.org/licenses/>.
 
 class MediaWiki(object):
+    """Basic class for accessing articles and properties of a MediaWiki."""
 
     def __init__(self, url):
-        """ Initialize the object.
+        """Initialize the object.
 
-        Params:
-
+        Arguments:
         url - URL to the wiki like "https://en.wikipedia.org/"
         """
         self.url = url
