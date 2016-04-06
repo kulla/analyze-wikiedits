@@ -20,6 +20,8 @@ documentation about this API.
 # You should have received a copy of the GNU General Public License
 # along with "Analyze Wikiedits". If not, see <http://www.gnu.org/licenses/>.
 
+import requests
+
 class MediaWiki(object):
     """Basic class for accessing articles and properties of a MediaWiki."""
 
@@ -32,3 +34,9 @@ class MediaWiki(object):
                       e.g. "https://en.wikipedia.org/w/api.php"
         """
         self.api_url = api_url
+
+    def api(self, params):
+        """Make a call to `api.php` and parses the returned json."""
+        params["format"] = "json"
+
+        return requests.get(self.api_url, params).json()
