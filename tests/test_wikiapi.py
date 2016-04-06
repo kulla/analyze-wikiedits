@@ -5,4 +5,4 @@ class TestMediaWiki(TestCase):
 
     def test___init__(self):
         for url in [ "", "abc", "http://de.wikibooks.org/" ]:
-            self.assertEquals(MediaWiki(url).url, url)
+            self.assertEquals(MediaWiki(url).api_url, url)

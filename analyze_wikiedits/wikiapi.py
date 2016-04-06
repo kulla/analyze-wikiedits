@@ -23,10 +23,12 @@ documentation about this API.
 class MediaWiki(object):
     """Basic class for accessing articles and properties of a MediaWiki."""
 
-    def __init__(self, url):
+    def __init__(self, api_url):
         """Initialize the object.
 
         Arguments:
-        url - URL to the wiki like "https://en.wikipedia.org/"
+
+            api_url - URL to the `api.php` file of the MediaWiki
+                      e.g. "https://en.wikipedia.org/w/api.php"
         """
-        self.url = url
+        self.api_url = api_url
