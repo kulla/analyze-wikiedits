@@ -1,0 +1,18 @@
+---
+# This is a Ansible playbook for installing all requirements for using this
+# tool. See http://docs.ansible.com/ansible/ for a documentation about Ansible.
+# 
+# Usage: Run
+#
+#    ansible-playbook --ask-become-pass requirements.yml
+#
+# on the computer where you want to use this tool.
+#
+- hosts: localhost
+  tasks:
+   - name: Install python with all necessary packages.
+     apt: package={{ item }} state=present
+     with_items:
+       - python          # we will use python as a programming language
+       - python-nose     # for the tool nosetests
+       - python-requests # `requests` is used for making HTTP requests
