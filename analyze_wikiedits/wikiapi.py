@@ -55,3 +55,12 @@ class MediaWiki(object):
         params["list"] = method
 
         return self.query(params)
+
+    def random_article_id(self):
+        """Return a random (non redirect) article id of the wiki from the main
+        namespace."""
+        return self.query_list("random", {
+            "rnlimit": 1,
+            "rnnamespace": 0,
+            "rnfilterredir": "nonredirects"
+        })["query"]["random"][0]["id"]

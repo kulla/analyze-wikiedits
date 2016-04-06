@@ -28,3 +28,16 @@ class TestMediaWiki(TestCase):
         r = self.wiki.query_list("allcategories", {})
 
         self.assertEquals(r["query"]["allcategories"][0]["*"], "!")
+
+    def test_random_article_id(self):
+        for i in range(5):
+            article_id = self.wiki.random_article_id()
+            props = self.wiki.query({
+                "pageids": article_id,
+                "prop": "info"
+            })["query"]["pages"][str(article_id)]
+
+            self.assertIn("touched", props)
+            self.assertNotIn("missing", props)
+            self.assertNotIn("redirect", props)
+            self.assertEquals(props["ns"], 0)
