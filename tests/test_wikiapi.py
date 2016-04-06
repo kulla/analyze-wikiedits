@@ -23,3 +23,8 @@ class TestMediaWiki(TestCase):
             self.wiki.query({ "meta": "siteinfo" })["query"]["general"]["sitename"],
             "Wikipedia"
         )
+
+    def test_query_list(self):
+        r = self.wiki.query_list("allcategories", {})
+
+        self.assertEquals(r["query"]["allcategories"][0]["*"], "!")

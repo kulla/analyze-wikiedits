@@ -48,3 +48,10 @@ class MediaWiki(object):
         params["action"] = "query"
 
         return self.api(params)
+
+    def query_list(self, method, params):
+        """Make an API call with action `query` and the list method `method`.
+        This method returns the parsed json of the call."""
+        params["list"] = method
+
+        return self.query(params)
