@@ -4,7 +4,7 @@
 # 
 # Usage: Run
 #
-#    ansible-playbook --ask-become-pass requirements.yml
+#    ansible-playbook --become --ask-become-pass requirements.yml
 #
 # on the computer where you want to use this tool.
 #
