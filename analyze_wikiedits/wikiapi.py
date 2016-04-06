@@ -36,7 +36,7 @@ class MediaWiki(object):
         self.api_url = api_url
 
     def api(self, params):
-        """Make a call to `api.php` and parses the returned json."""
+        """Make an API call to `api.php` and parses the returned json."""
         params["format"] = "json"
 
         return requests.get(self.api_url, params).json()
