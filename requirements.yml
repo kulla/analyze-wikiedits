@@ -16,3 +16,4 @@
        - python          # we will use python as a programming language
        - python-nose     # for the tool nosetests
        - python-requests # `requests` is used for making HTTP requests
+       - pylint          # tool for checking python source code
